@@ -1,11 +1,11 @@
 import { get } from './client';
-import type { Product, ProductDetail } from './types';
+import type { Mobile, MobileDetail } from './types';
 
-export function getProducts(search?: string): Promise<Product[]> {
+export function getMobiles(search?: string): Promise<Mobile[]> {
   const params = search ? { search } : undefined;
-  return get<Product[]>('/products', params);
+  return get<Mobile[]>('/mobiles', params);
 }
 
-export function getProductById(id: string): Promise<ProductDetail> {
-  return get<ProductDetail>(`/products/${id}`);
+export function getMobileById(id: string): Promise<MobileDetail> {
+  return get<MobileDetail>(`/mobiles/${id}`);
 }
