@@ -1,4 +1,4 @@
-export interface Product {
+export interface Mobile {
   id: string;
   brand: string;
   name: string;
@@ -6,7 +6,7 @@ export interface Product {
   imageUrl: string;
 }
 
-export interface ProductSpecs {
+export interface MobileSpecs {
   screen: string;
   resolution: string;
   processor: string;
@@ -28,11 +28,11 @@ export interface StorageOption {
   price: number;
 }
 
-export interface ProductDetail extends Product {
+export interface MobileDetail extends Omit<Mobile, 'imageUrl'> {
   description: string;
   rating: number;
-  specs: ProductSpecs;
+  specs: MobileSpecs;
   colorOptions: ColorOption[];
   storageOptions: StorageOption[];
-  similarProducts: Product[];
+  similarProducts: Mobile[];
 }
