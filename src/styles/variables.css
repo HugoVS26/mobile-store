@@ -1,0 +1,23 @@
+/* Globals */
+:root {
+  /* Colors */
+  --color-bg: #fff;
+  --color-border: #ccc;
+  --color-text-primary: #000;
+  --color-text-secondary: #aaa;
+  --color-text-warning: #df0000;
+  --color-accent: #000000;
+
+  /* Typography */
+  --font-family: Helvetica, Arial, sans-serif;
+  --font-size-sm: 10px;
+  --font-size-base: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+
+  /* Spacings */
+  --spacing-page-padding-sm: 16px; /* mobile */
+  --spacing-page-padding-md: 24px; /* tablet */
+  --spacing-page-padding-lg: 100px; /* desktop */
+}
