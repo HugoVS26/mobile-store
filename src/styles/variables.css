@@ -20,4 +20,8 @@
   --spacing-page-padding-sm: 16px; /* mobile */
   --spacing-page-padding-md: 24px; /* tablet */
   --spacing-page-padding-lg: 100px; /* desktop */
+
+  --spacing-sm: 0.2rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 0.8rem;
 }
