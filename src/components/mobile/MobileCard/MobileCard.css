@@ -1,0 +1,87 @@
+.mobile-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid var(--color-border);
+  padding: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.mobile-card:hover::before {
+  transform: scaleY(1);
+}
+
+.mobile-card:hover .mobile-card__name,
+.mobile-card:hover .mobile-card__price {
+  color: var(--color-bg);
+}
+
+.mobile-card__image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mobile-card__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.mobile-card__info {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding-top: var(--spacing-lg);
+  font-weight: 300;
+  z-index: 1;
+}
+
+.mobile-card__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-card__price-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.mobile-card__brand {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.mobile-card__name {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.mobile-card__price {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  text-align: right;
+}
