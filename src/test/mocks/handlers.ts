@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 import { mockedMobiles, mockedMobileDetail } from './mobiles';
 
 export const handlers = [
-  http.get(`${import.meta.env.VITE_API_BASE_URL as string}/mobiles`, ({ request }) => {
+  http.get(`${import.meta.env.VITE_API_BASE_URL as string}/products`, ({ request }) => {
     const url = new URL(request.url);
     const search = url.searchParams.get('search')?.toLowerCase() ?? '';
 
@@ -15,7 +15,7 @@ export const handlers = [
     return HttpResponse.json(results);
   }),
 
-  http.get(`${import.meta.env.VITE_API_BASE_URL as string}/mobiles/:id`, ({ params }) => {
+  http.get(`${import.meta.env.VITE_API_BASE_URL as string}/products/:id`, ({ params }) => {
     if (params.id === mockedMobileDetail.id) {
       return HttpResponse.json(mockedMobileDetail);
     }
