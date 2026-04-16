@@ -16,6 +16,8 @@
   --font-size-lg: 16px;
   --font-size-xl: 20px;
 
+  --font-weight-light: 300;
+
   /* Spacings */
   --spacing-page-padding-sm: 16px; /* mobile */
   --spacing-page-padding-md: 24px; /* tablet */
