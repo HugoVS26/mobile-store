@@ -17,7 +17,8 @@
   --font-size-base: 12px;
   --font-size-md: 14px;
   --font-size-lg: 16px;
-  --font-size-xl: 20px;
+  --font-size-xlg: 20px;
+  --font-size-2xlg: 24px;
 
   --font-weight-light: 300;
 
@@ -30,10 +31,11 @@
   --spacing-md: 0.5rem;
   --spacing-lg: 0.8rem;
   --spacing-xlg: 1rem;
-  --spacing-2xlg: 24px;
-  --spacing-3xlg: 40px;
+  --spacing-2xlg: 1.25rem;
+  --spacing-3xlg: 2.5rem;
 
   /* Layout */
   --navbar-height: 80px;
+  --footer-height: 120px;
   --max-width-content: 1200px;
 }
