@@ -4,17 +4,14 @@ import { BackLink } from './BackLink';
 
 describe('Given a BackLink component', () => {
   describe('When rendered', () => {
-    it('Should render a link pointing to the home page', () => {
+    it('Should render a back button', () => {
       render(
         <MemoryRouter>
           <BackLink />
         </MemoryRouter>,
       );
 
-      const link = screen.getByRole('link', { name: 'BACK' });
-
-      expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute('href', '/');
+      expect(screen.getByRole('button', { name: 'BACK' })).toBeInTheDocument();
     });
   });
 });
