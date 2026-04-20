@@ -1,5 +1,6 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import type { JSX } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { getMobiles } from '@/api/endpoints';
 import type { Mobile } from '@/api/types';
 import MobileList from '@/components/mobile/MobileList/MobileList';
@@ -26,8 +27,13 @@ function fetchReducer(_: FetchState, action: FetchAction): FetchState {
 }
 
 function MobileListPage(): JSX.Element {
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('search') ?? '';
   const [state, dispatch] = useReducer(fetchReducer, { status: 'loading' });
+
+  function setQuery(value: string): void {
+    setSearchParams(value ? { search: value } : {}, { replace: true });
+  }
 
   useEffect(() => {
     dispatch({ type: 'fetch' });
