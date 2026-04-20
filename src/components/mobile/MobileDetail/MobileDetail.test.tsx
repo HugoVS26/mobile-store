@@ -2,11 +2,16 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import type { ReactNode, JSX } from 'react';
+import { CartProvider } from '@/context/CartProvider';
 import { mockedMobileDetail } from '@/test/mocks/mobiles';
 import { MobileDetail } from './MobileDetail';
 
 function wrapper({ children }: { children: ReactNode }): JSX.Element {
-  return <MemoryRouter>{children}</MemoryRouter>;
+  return (
+    <CartProvider>
+      <MemoryRouter>{children}</MemoryRouter>
+    </CartProvider>
+  );
 }
 
 function renderMobileDetail(): ReturnType<typeof render> {
