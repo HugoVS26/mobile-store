@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    minify: mode === 'production' ? 'esbuild' : false,
+    minify: mode === 'production' ? 'oxc' : false,
     sourcemap: mode !== 'production',
     rollupOptions: {
       output: {
