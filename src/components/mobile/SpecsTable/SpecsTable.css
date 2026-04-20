@@ -1,0 +1,32 @@
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+}
+
+.specs-table__row {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.specs-table__row:first-child {
+  border-top: 0.5px solid var(--color-border);
+}
+
+.specs-table__key {
+  padding: var(--spacing-xlg) 0;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  width: 25%;
+  vertical-align: top;
+
+  @media (max-width: 769px) {
+    width: 50%;
+  }
+}
+
+.specs-table__value {
+  padding: var(--spacing-xlg) 0;
+  color: var(--color-text-primary);
+}

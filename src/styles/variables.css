@@ -5,8 +5,11 @@
   --color-border: #ccc;
   --color-text-primary: #000;
   --color-text-secondary: #aaa;
+  --color-text-secondary-lighter: #c2bfbc;
   --color-text-warning: #df0000;
-  --color-accent: #000000;
+  --color-accent: #000;
+  --color-dark: #1b1a18;
+  --color-light: #f3f2f2;
 
   /* Typography */
   --font-family: Helvetica, Arial, sans-serif;
@@ -26,4 +29,11 @@
   --spacing-sm: 0.2rem;
   --spacing-md: 0.5rem;
   --spacing-lg: 0.8rem;
+  --spacing-xlg: 1rem;
+  --spacing-2xlg: 24px;
+  --spacing-3xlg: 40px;
+
+  /* Layout */
+  --navbar-height: 80px;
+  --max-width-content: 1200px;
 }

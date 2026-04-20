@@ -1,11 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import MobileCard from './MobileCard';
 import { mockedMobiles } from '@/test/mocks/mobiles';
 
 const mobile = mockedMobiles[0];
 
 function renderMobileCard(): ReturnType<typeof render> {
-  return render(<MobileCard mobile={mobile} />);
+  return render(
+    <MemoryRouter>
+      <MobileCard mobile={mobile} />
+    </MemoryRouter>,
+  );
 }
 
 describe('Given a MobileCard component', () => {

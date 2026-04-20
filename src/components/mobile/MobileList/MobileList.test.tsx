@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import MobileList from './MobileList';
 import { mockedMobiles } from '@/test/mocks/mobiles';
 
 function renderMobileList(mobiles = mockedMobiles): ReturnType<typeof render> {
-  return render(<MobileList mobiles={mobiles} />);
+  return render(
+    <MemoryRouter>
+      <MobileList mobiles={mobiles} />
+    </MemoryRouter>,
+  );
 }
 
 describe('Given a MobileList component', () => {
