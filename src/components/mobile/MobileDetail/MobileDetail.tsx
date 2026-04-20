@@ -5,6 +5,7 @@ import { ColorSelector } from '@/components/mobile/ColorSelector/ColorSelector';
 import { StorageSelector } from '@/components/mobile/StorageSelector/StorageSelector';
 import { SpecsTable } from '@/components/mobile/SpecsTable/SpecsTable';
 import { SimilarProducts } from '@/components/mobile/SimilarProducts/SimilarProducts';
+import { useCart } from '@/hooks/useCart';
 import './MobileDetail.css';
 
 interface MobileDetailProps {
@@ -18,8 +19,25 @@ export function MobileDetail({ mobile, initialImageUrl }: MobileDetailProps): JS
   );
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(null);
 
+  const { addItem } = useCart();
   const currentImage = selectedColor?.imageUrl ?? mobile.colorOptions[0]?.imageUrl ?? '';
   const currentPrice = selectedStorage?.price ?? mobile.basePrice;
+  const canAddToCart = selectedColor !== null && selectedStorage !== null;
+
+  function handleAddToCart(): void {
+    if (!selectedColor || !selectedStorage) {
+      return;
+    }
+    addItem({
+      id: mobile.id,
+      name: mobile.name,
+      brand: mobile.brand,
+      imageUrl: selectedColor.imageUrl,
+      color: selectedColor.name,
+      storage: selectedStorage.capacity,
+      price: selectedStorage.price,
+    });
+  }
 
   return (
     <main className="mobile-detail">
@@ -51,8 +69,13 @@ export function MobileDetail({ mobile, initialImageUrl }: MobileDetailProps): JS
             />
           </div>
 
-          <button className="mobile-detail__add-to-cart" aria-label="Add to cart" disabled>
-            AÑADIR
+          <button
+            className="mobile-detail__add-to-cart"
+            aria-label="Add to cart"
+            disabled={!canAddToCart}
+            onClick={handleAddToCart}
+          >
+            ADD TO CART
           </button>
         </div>
       </div>

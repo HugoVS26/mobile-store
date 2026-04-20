@@ -97,7 +97,6 @@
   letter-spacing: 0.1em;
   border: none;
   cursor: pointer;
-  transition: opacity 0.15s ease;
 }
 
 .mobile-detail__add-to-cart:disabled {

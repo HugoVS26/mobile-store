@@ -1,8 +1,11 @@
 import type { JSX } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '@/hooks/useCart';
 import './Navbar.css';
 
 export function Navbar(): JSX.Element {
+  const { itemCount } = useCart();
+
   return (
     <header className="navbar">
       <nav className="navbar__inner">
@@ -14,14 +17,15 @@ export function Navbar(): JSX.Element {
             className="navbar__logo-icon"
           />
         </Link>
-        <div className="navbar__cart-wrapper">
+        <Link to="/cart" className="navbar__cart-wrapper" aria-label={`Cart, ${itemCount} items`}>
           <img
-            src="/assets/bag-white.svg"
+            src={itemCount > 0 ? '/assets/bag-black.svg' : '/assets/bag-white.svg'}
             alt=""
             aria-hidden="true"
             className="navbar__cart-icon"
           />
-        </div>
+          {itemCount && <span className="navbar__cart-badge">{itemCount}</span>}
+        </Link>
       </nav>
     </header>
   );

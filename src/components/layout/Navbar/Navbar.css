@@ -18,13 +18,13 @@
   }
 }
 
-@media (min-width: 698px) and (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1200px) {
   .navbar {
     padding: 0 var(--spacing-page-padding-md);
   }
 }
 
-@media (max-width: 698px) {
+@media (max-width: 769px) {
   .navbar {
     padding: 0 var(--spacing-page-padding-sm);
   }
@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: var(--navbar-height);
 }
 
 .navbar__logo-icon {

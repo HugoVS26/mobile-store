@@ -1,16 +1,19 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { CartProvider } from '@/context/CartProvider';
 import { mockedMobileDetail } from '@/test/mocks/mobiles';
 import MobileDetailPage from './MobileDetailPage';
 
 function renderDetailPage(id: string = mockedMobileDetail.id): ReturnType<typeof render> {
   return render(
-    <MemoryRouter initialEntries={[`/product/${id}`]}>
-      <Routes>
-        <Route path="/product/:id" element={<MobileDetailPage />} />
-      </Routes>
-    </MemoryRouter>,
+    <CartProvider>
+      <MemoryRouter initialEntries={[`/product/${id}`]}>
+        <Routes>
+          <Route path="/product/:id" element={<MobileDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    </CartProvider>,
   );
 }
 

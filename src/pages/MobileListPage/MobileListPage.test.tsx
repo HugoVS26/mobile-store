@@ -1,15 +1,18 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import { CartProvider } from '@/context/CartProvider';
 import { mockedMobiles } from '@/test/mocks/mobiles';
 import * as endpoints from '@/api/endpoints';
 import MobileListPage from './MobileListPage';
 
 function renderMobileListPage(): ReturnType<typeof render> {
   return render(
-    <MemoryRouter>
-      <MobileListPage />
-    </MemoryRouter>,
+    <CartProvider>
+      <MemoryRouter>
+        <MobileListPage />
+      </MemoryRouter>
+    </CartProvider>,
   );
 }
 
