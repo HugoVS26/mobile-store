@@ -1,12 +1,15 @@
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { CartProvider } from '@/context/CartProvider';
 import { Navbar } from './Navbar';
 
 function renderNavbar(): ReturnType<typeof render> {
   return render(
-    <MemoryRouter>
-      <Navbar />
-    </MemoryRouter>,
+    <CartProvider>
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>
+    </CartProvider>,
   );
 }
 
