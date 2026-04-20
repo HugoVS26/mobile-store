@@ -1,10 +1,12 @@
 import type { JSX } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './BackLink.css';
 
 export function BackLink(): JSX.Element {
+  const navigate = useNavigate();
+
   return (
-    <Link to="/" className="back-link">
+    <button className="back-link" onClick={() => navigate(-1)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -20,6 +22,6 @@ export function BackLink(): JSX.Element {
         />
       </svg>{' '}
       BACK
-    </Link>
+    </button>
   );
 }
