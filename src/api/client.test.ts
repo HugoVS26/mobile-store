@@ -1,74 +1,52 @@
-import { http, HttpResponse } from 'msw';
-import { server } from '@/test/mocks/server';
 import { get } from './client';
 
-const TEST_API_BASE_URL = 'https://api.example.com';
-const TEST_API_KEY = 'test-api-key';
-
-const MOBILES_URL = `${TEST_API_BASE_URL}/products`;
-const MOBILE_BY_ID_URL = `${TEST_API_BASE_URL}/products/:id`;
-
-vi.stubEnv('VITE_API_BASE_URL', TEST_API_BASE_URL);
-vi.stubEnv('VITE_API_KEY', TEST_API_KEY);
+const BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
+const API_KEY = import.meta.env.VITE_API_KEY as string;
 
 describe('Given the get() API client', () => {
   describe('When making a request', () => {
     it('Should attach the x-api-key header', async () => {
-      let capturedKey: string | null = null;
-
-      server.use(
-        http.get(MOBILES_URL, ({ request }) => {
-          capturedKey = request.headers.get('x-api-key');
-          return HttpResponse.json([]);
-        }),
-      );
+      const mockFetch = vi
+        .spyOn(globalThis, 'fetch')
+        .mockResolvedValue(new Response(JSON.stringify([]), { status: 200 }));
 
       await get('/products');
 
-      expect(capturedKey).toBe(TEST_API_KEY);
+      const [, init] = mockFetch.mock.calls[0] as [string, RequestInit];
+      expect((init.headers as Record<string, string>)['x-api-key']).toBe(API_KEY);
+
+      mockFetch.mockRestore();
     });
 
     it('Should build the correct URL with query params', async () => {
-      const SEARCH_QUERY = 'samsung';
-      const EXPECTED_URL = `${MOBILES_URL}?search=${SEARCH_QUERY}`;
-      let capturedUrl = '';
+      const mockFetch = vi
+        .spyOn(globalThis, 'fetch')
+        .mockResolvedValue(new Response(JSON.stringify([]), { status: 200 }));
 
-      server.use(
-        http.get(MOBILES_URL, ({ request }) => {
-          capturedUrl = request.url;
-          return HttpResponse.json([]);
-        }),
-      );
+      await get('/products', { search: 'samsung' });
 
-      await get('/products', { search: SEARCH_QUERY });
+      const [url] = mockFetch.mock.calls[0] as [string, RequestInit];
+      expect(url).toBe(`${BASE_URL}/products?search=samsung`);
 
-      expect(capturedUrl).toBe(EXPECTED_URL);
+      mockFetch.mockRestore();
     });
 
     it('Should skip empty param values', async () => {
-      let capturedUrl = '';
-
-      server.use(
-        http.get(MOBILES_URL, ({ request }) => {
-          capturedUrl = request.url;
-          return HttpResponse.json([]);
-        }),
-      );
+      const mockFetch = vi
+        .spyOn(globalThis, 'fetch')
+        .mockResolvedValue(new Response(JSON.stringify([]), { status: 200 }));
 
       await get('/products', { search: '' });
 
-      expect(capturedUrl).toBe(MOBILES_URL);
+      const [url] = mockFetch.mock.calls[0] as [string, RequestInit];
+      expect(url).toBe(`${BASE_URL}/products`);
+
+      mockFetch.mockRestore();
     });
   });
 
   describe('When the server returns an error', () => {
     it('Should throw with the HTTP status code', async () => {
-      server.use(
-        http.get(MOBILE_BY_ID_URL, () => {
-          return HttpResponse.json({ message: 'Product not found' }, { status: 404 });
-        }),
-      );
-
       await expect(get('/products/unknown')).rejects.toThrow('HTTP 404');
     });
   });
