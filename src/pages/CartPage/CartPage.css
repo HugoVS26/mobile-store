@@ -23,12 +23,12 @@
 .cart-page__title {
   width: 100%;
   padding: var(--spacing-2xlg) 0;
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-2xlg);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
 
   @media (max-width: 1200px) {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-xlg);
   }
 }
 
