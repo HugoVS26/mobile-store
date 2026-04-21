@@ -47,6 +47,7 @@ export function MobileDetail({ mobile, initialImageUrl }: MobileDetailProps): JS
             src={currentImage}
             alt={`${mobile.brand} ${mobile.name}`}
             className="mobile-detail__image"
+            width="510"
           />
         </div>
 
