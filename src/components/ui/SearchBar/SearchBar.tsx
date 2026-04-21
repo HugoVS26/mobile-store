@@ -23,7 +23,7 @@ function SearchBar({ value, onChange }: SearchBarProps): JSX.Element {
           onClick={() => onChange('')}
           aria-label="Clear search"
         >
-          <img src="/assets/close-small.svg" alt="" aria-hidden="true" />
+          <img src="/assets/close-small.svg" alt="" aria-hidden="true" width="20" height="20" />
         </button>
       )}
     </div>

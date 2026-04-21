@@ -11,7 +11,12 @@ interface CartItemProps {
 export function CartItem({ item, onRemove }: CartItemProps): JSX.Element {
   return (
     <article className="cart-item">
-      <img src={item.imageUrl} alt={`${item.brand} ${item.name}`} className="cart-item__image" />
+      <img
+        src={item.imageUrl}
+        alt={`${item.brand} ${item.name}`}
+        className="cart-item__image"
+        width="274"
+      />
       <div className="cart-item__details">
         <div className="cart-item__info">
           <div className="cart-item__info-header">

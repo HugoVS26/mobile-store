@@ -7,21 +7,21 @@ export const mockedMobiles: Mobile[] = [
     name: 'Galaxy S24 Ultra',
     basePrice: 1329,
     imageUrl:
-      'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-violet.webp',
+      'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-violet.webp',
   },
   {
     id: 'SMG-A25',
     brand: 'Samsung',
     name: 'Galaxy A25 5G',
     basePrice: 239,
-    imageUrl: 'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A25-negro.webp',
+    imageUrl: 'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-A25-negro.webp',
   },
   {
     id: 'GPX-8A',
     brand: 'Google',
     name: 'Pixel 8a',
     basePrice: 459,
-    imageUrl: 'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/GPX-8A-obsidiana.webp',
+    imageUrl: 'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/GPX-8A-obsidiana.webp',
   },
   {
     id: 'APL-I15PM',
@@ -29,7 +29,7 @@ export const mockedMobiles: Mobile[] = [
     name: 'iPhone 15 Pro Max',
     basePrice: 1319,
     imageUrl:
-      'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.webp',
+      'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/APL-I15PM-titanio-negro.webp',
   },
 ];
 
@@ -57,25 +57,25 @@ export const mockedMobileDetail: MobileDetail = {
       name: 'Titanium Violet',
       hexCode: '#8E6F96',
       imageUrl:
-        'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-violet.webp',
+        'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-violet.webp',
     },
     {
       name: 'Titanium Black',
       hexCode: '#000000',
       imageUrl:
-        'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-black.webp',
+        'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-black.webp',
     },
     {
       name: 'Titanium Gray',
       hexCode: '#808080',
       imageUrl:
-        'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-gray.webp',
+        'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-gray.webp',
     },
     {
       name: 'Titanium Yellow',
       hexCode: '#FFFF00',
       imageUrl:
-        'http://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-yellow.webp',
+        'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-yellow.webp',
     },
   ],
   storageOptions: [
