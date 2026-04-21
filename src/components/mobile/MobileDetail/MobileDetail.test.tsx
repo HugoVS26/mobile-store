@@ -6,6 +6,12 @@ import { CartProvider } from '@/context/CartProvider';
 import { mockedMobileDetail } from '@/test/mocks/mobiles';
 import { MobileDetail } from './MobileDetail';
 
+const mockNavigate = vi.fn();
+vi.mock('react-router-dom', async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>();
+  return { ...actual, useNavigate: (): typeof mockNavigate => mockNavigate };
+});
+
 function wrapper({ children }: { children: ReactNode }): JSX.Element {
   return (
     <CartProvider>
@@ -59,6 +65,20 @@ describe('Given a MobileDetail component', () => {
       await userEvent.click(screen.getByText(storage.capacity));
 
       expect(screen.getByText(`From ${storage.price} EUR`)).toBeInTheDocument();
+    });
+  });
+
+  describe('When the user adds an item to the cart', () => {
+    it('Should navigate to the cart page', async () => {
+      renderMobileDetail();
+
+      await userEvent.click(screen.getByText(mockedMobileDetail.storageOptions[0].capacity));
+      await userEvent.click(
+        screen.getByRole('radio', { name: mockedMobileDetail.colorOptions[0].name }),
+      );
+      await userEvent.click(screen.getByRole('button', { name: 'Add to cart' }));
+
+      expect(mockNavigate).toHaveBeenCalledWith('/cart');
     });
   });
 });
