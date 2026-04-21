@@ -63,7 +63,7 @@
 }
 
 .mobile-detail__name {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xlg);
   font-weight: var(--font-weight-light);
   text-transform: uppercase;
 }
@@ -112,7 +112,7 @@
 }
 
 .mobile-detail__specs-title {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xlg);
   font-weight: var(--font-weight-light);
 }
 
