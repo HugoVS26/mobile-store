@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { JSX } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { MobileDetail as MobileDetailType, ColorOption, StorageOption } from '@/api/types';
 import { ColorSelector } from '@/components/mobile/ColorSelector/ColorSelector';
 import { StorageSelector } from '@/components/mobile/StorageSelector/StorageSelector';
@@ -20,6 +21,7 @@ export function MobileDetail({ mobile, initialImageUrl }: MobileDetailProps): JS
   const [selectedStorage, setSelectedStorage] = useState<StorageOption | null>(null);
 
   const { addItem } = useCart();
+  const navigate = useNavigate();
   const currentImage = selectedColor?.imageUrl ?? mobile.colorOptions[0]?.imageUrl ?? '';
   const currentPrice = selectedStorage?.price ?? mobile.basePrice;
   const canAddToCart = selectedColor !== null && selectedStorage !== null;
@@ -37,6 +39,7 @@ export function MobileDetail({ mobile, initialImageUrl }: MobileDetailProps): JS
       storage: selectedStorage.capacity,
       price: selectedStorage.price,
     });
+    navigate('/cart');
   }
 
   return (
