@@ -20,5 +20,6 @@ export async function get<T>(path: string, params?: Record<string, string>): Pro
     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
   }
 
-  return response.json() as Promise<T>;
+  const data = await response.json();
+  return JSON.parse(JSON.stringify(data).replaceAll('http://', 'https://')) as T;
 }
