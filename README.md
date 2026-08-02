@@ -2,7 +2,7 @@
 
 **Production:** [mbst-mobile-store.netlify.app](https://mbst-mobile-store.netlify.app)
 
-A mobile phones e-commerce catalogue built as a technical challenge. Users can browse phones, search by name or brand, view detailed specifications, select colour and storage variants, and manage a persistent shopping cart.
+A mobile phones e-commerce catalogue built as a technical challenge. Users can browse phones, search by name or brand, view detailed specifications, select colour and storage variants, and manage a persistent shopping cart. The UI was built to match the provided Figma designs and prototype.
 
 ## Table of Contents
 
@@ -144,6 +144,8 @@ src/
 ```
 
 ### Key design decisions
+
+**Design implementation** — The UI was built to match the provided Figma designs and prototype, translated into responsive layouts using CSS custom properties as design tokens (`styles/variables.css`) for consistent spacing, colour and typography across the app.
 
 **API layer** — A single generic `get<T>()` client in `client.ts` handles authentication headers and error throwing. All endpoint logic lives in `endpoints.ts`, keeping components fully decoupled from HTTP details.
 
